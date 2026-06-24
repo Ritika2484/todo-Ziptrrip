@@ -203,6 +203,33 @@ class TodoService {
       console.warn('[History] Failed to log delete action:', e.message);
     }
   }
+
+  /**
+   * Toggle a todo's completed status atomically.
+   * Flips true → false or false → true in a single operation.
+   * Logs 'completed' or 'uncompleted' to history.
+   *
+   * @param {string} id
+   * @returns {Promise<Object>} The updated todo
+   */
+  async toggleTodo(id) {
+    const original = await this.getTodoById(id);
+    const newState = !original.completed;
+
+    const updated = await this.repository.update(id, { completed: newState });
+
+    // ── Audit log ──────────────────────────────────────────────
+    try {
+      const action  = newState ? 'completed' : 'uncompleted';
+      const changes = { completed: { from: original.completed, to: newState } };
+      await historyService.logAction(updated.id, updated.title, action, changes);
+    } catch (e) {
+      console.warn('[History] Failed to log toggle action:', e.message);
+    }
+
+    return updated;
+  }
 }
 
 module.exports = new TodoService(new FileRepository());
+

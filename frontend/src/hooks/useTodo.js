@@ -3,7 +3,9 @@ import {
   fetchTodoById,
   updateTodo,
   deleteTodo,
+  toggleTodo as apiToggle,
 } from '../api/todoApi';
+
 
 /**
  * useTodo — State management for the TodoDetail page.
@@ -48,13 +50,13 @@ export default function useTodo(id) {
     return updated;
   }, [id]);
 
-  // ── Toggle completed ──────────────────────────────────────────
+  // ── Toggle completed — calls PATCH /:id/toggle ─────────────────
   const toggleTodo = useCallback(async () => {
-    if (!todo) return;
-    const updated = await updateTodo(id, { completed: !todo.completed });
+    const updated = await apiToggle(id);
     setTodo(updated);
     return updated;
-  }, [id, todo]);
+  }, [id]);
+
 
   // ── Delete → caller redirects to "/" ─────────────────────────
   const removeTodo = useCallback(async () => {

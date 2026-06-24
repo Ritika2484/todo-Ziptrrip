@@ -5,7 +5,9 @@ const {
   createTodo,
   updateTodo,
   deleteTodo,
+  toggleTodo,
 } = require('../controllers/todoController');
+
 
 /**
  * Todo routes — endpoint definitions only.
@@ -16,10 +18,12 @@ const {
  */
 const router = Router();
 
-router.get('/',     getAllTodos);
-router.get('/:id',  getTodoById);
-router.post('/',    createTodo);
-router.put('/:id',  updateTodo);
-router.delete('/:id', deleteTodo);
+router.get('/',             getAllTodos);
+router.get('/:id',          getTodoById);
+router.post('/',            createTodo);
+router.put('/:id',          updateTodo);
+router.delete('/:id',       deleteTodo);
+router.patch('/:id/toggle', toggleTodo);  // dedicated atomic toggle
+
 
 module.exports = router;

@@ -195,7 +195,7 @@ export default function AddEditModal({ todo, onSubmit, onClose }) {
                 className="form-input"
                 value={form.dueDate}
                 onChange={handleChange}
-                style={{ colorScheme: 'dark' }}
+                style={{ colorScheme: 'light' }}
               />
             </div>
           </div>

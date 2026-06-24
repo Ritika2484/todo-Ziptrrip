@@ -23,7 +23,7 @@ export default function EmptyState({ hasFilters, onClear, onAdd }) {
       <h3>All clear!</h3>
       <p>You have no todos yet. Add your first one to get started.</p>
       <button className="btn-add" onClick={onAdd} id="empty-add-todo-btn">
-        + Add your first todo
+        ✏️ Add a Task
       </button>
     </div>
   );

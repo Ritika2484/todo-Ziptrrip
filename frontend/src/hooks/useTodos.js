@@ -4,7 +4,9 @@ import {
   createTodo,
   updateTodo,
   deleteTodo,
+  toggleTodo as apiToggle,
 } from '../api/todoApi';
+
 
 /**
  * useTodos — State management for the TodoList page.
@@ -63,13 +65,12 @@ export default function useTodos() {
     setTodos((prev) => prev.filter((t) => t.id !== id));
   }, []);
 
-  // ── Toggle completed ──────────────────────────────────────────
+  // ── Toggle completed — uses dedicated PATCH /:id/toggle endpoint ─
   const toggleTodo = useCallback(async (id) => {
-    const todo = todos.find((t) => t.id === id);
-    if (!todo) return;
-    const updated = await updateTodo(id, { completed: !todo.completed });
+    const updated = await apiToggle(id);
     setTodos((prev) => prev.map((t) => (t.id === id ? updated : t)));
-  }, [todos]);
+  }, []);
+
 
   // ── Client-side filter + sort ─────────────────────────────────
   const filteredTodos = useMemo(() => {

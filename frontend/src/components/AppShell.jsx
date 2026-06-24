@@ -13,7 +13,7 @@ export default function AppShell({ activePage, children }) {
         <div className="app-header-inner">
           {/* Logo */}
           <a href="/" className="app-logo" aria-label="Go to todo list">
-            <div className="app-logo-icon" aria-hidden="true">✓</div>
+            <div className="app-logo-icon" aria-hidden="true">✨</div>
             <span>Ziptrrip<span className="gradient-text"> Todos</span></span>
           </a>
 

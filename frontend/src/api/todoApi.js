@@ -86,6 +86,18 @@ export async function updateTodo(id, payload) {
 }
 
 /**
+ * PATCH /api/todos/:id/toggle
+ * Atomically flips completed status. No body needed.
+ * @param {string} id
+ * @returns {Promise<Object>}
+ */
+export async function toggleTodo(id) {
+  const res = await fetch(`${BASE_URL}/${id}/toggle`, { method: 'PATCH' });
+  const data = await parseResponse(res);
+  return data.data;
+}
+
+/**
  * DELETE /api/todos/:id
  * @param {string} id
  * @returns {Promise<void>}
@@ -94,3 +106,4 @@ export async function deleteTodo(id) {
   const res = await fetch(`${BASE_URL}/${id}`, { method: 'DELETE' });
   await parseResponse(res);
 }
+

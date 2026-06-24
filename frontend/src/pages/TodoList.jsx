@@ -4,6 +4,7 @@ import TodoCard     from '../components/TodoCard';
 import FilterBar    from '../components/FilterBar';
 import AddEditModal from '../components/AddEditModal';
 import EmptyState   from '../components/EmptyState';
+import CozyCharacter from '../components/CozyCharacter';
 
 /**
  * TodoList — Page 1, route "/".
@@ -96,7 +97,7 @@ export default function TodoList() {
         <div className="title-row">
           <div>
             <h1>
-              My <span className="gradient-text">Todos</span>
+              My <span className="handwritten-word">Todos</span>
             </h1>
             <p className="page-subtitle">Stay organised. Get things done.</p>
           </div>
@@ -104,29 +105,52 @@ export default function TodoList() {
             className="btn-add"
             onClick={openAddModal}
             id="open-add-modal-btn"
-            aria-label="Add new todo"
+            aria-label="Add a task"
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden="true">
-              <line x1="12" y1="5" x2="12" y2="19"/>
-              <line x1="5"  y1="12" x2="19" y2="12"/>
-            </svg>
-            New Todo
+            <span>✏️</span> Add a Task
           </button>
         </div>
       </div>
 
-      {/* Stats chips */}
+      {/* Stats tiles */}
       {!loading && !error && (
-        <div className="stats-row" aria-label="Todo statistics">
-          <div className="stat-chip"><span>{stats.total}</span> Total</div>
-          <div className="stat-chip"><span>{stats.active}</span> Active</div>
-          <div className="stat-chip"><span>{stats.completed}</span> Completed</div>
-          {stats.high > 0 && (
-            <div className="stat-chip" style={{ color: 'var(--priority-high)' }}>
-              <span style={{ color: 'var(--priority-high)' }}>{stats.high}</span> High priority
+        <>
+          <div className="stats-row" aria-label="Todo statistics">
+            <div className="stat-card total">
+              <div className="stat-icon">📌</div>
+              <div className="stat-content">
+                <span className="stat-number">{stats.total}</span>
+                <span className="stat-label">Total</span>
+              </div>
             </div>
-          )}
-        </div>
+            <div className="stat-card active">
+              <div className="stat-icon">⏳</div>
+              <div className="stat-content">
+                <span className="stat-number">{stats.active}</span>
+                <span className="stat-label">Active</span>
+              </div>
+            </div>
+            <div className="stat-card completed">
+              <div className="stat-icon">🎉</div>
+              <div className="stat-content">
+                <span className="stat-number">{stats.completed}</span>
+                <span className="stat-label">Completed</span>
+              </div>
+            </div>
+            {stats.high > 0 && (
+              <div className="stat-card high-priority">
+                <div className="stat-icon">🔥</div>
+                <div className="stat-content">
+                  <span className="stat-number">{stats.high}</span>
+                  <span className="stat-label">Urgent</span>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Animated Cozy Cat Character */}
+          <CozyCharacter activeCount={stats.active} totalCount={stats.total} />
+        </>
       )}
 
       {/* Filter bar */}

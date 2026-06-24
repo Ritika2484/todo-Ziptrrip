@@ -69,4 +69,18 @@ async function deleteTodo(req, res, next) {
   }
 }
 
-module.exports = { getAllTodos, getTodoById, createTodo, updateTodo, deleteTodo };
+/**
+ * PATCH /api/todos/:id/toggle
+ * Atomically flips the completed status. No body required.
+ */
+async function toggleTodo(req, res, next) {
+  try {
+    const todo = await todoService.toggleTodo(req.params.id);
+    res.status(200).json({ success: true, data: todo });
+  } catch (err) {
+    next(err);
+  }
+}
+
+module.exports = { getAllTodos, getTodoById, createTodo, updateTodo, deleteTodo, toggleTodo };
+

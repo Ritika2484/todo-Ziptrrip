@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 
 const STATUS_OPTIONS   = [
-  { value: 'all',       label: 'All Status' },
+  { value: 'all',       label: 'All' },
   { value: 'active',    label: 'Active' },
   { value: 'completed', label: 'Completed' },
 ];

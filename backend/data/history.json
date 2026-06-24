@@ -1,5 +1,21 @@
 [
   {
+    "id": "a7ea1a19-0912-47d4-9745-67ee5f77029b",
+    "todoId": "10e746b2-f4f4-4f27-a7ca-85c8f9ffd047",
+    "todoTitle": "dsa",
+    "action": "deleted",
+    "changes": null,
+    "timestamp": "2026-06-24T19:12:32.088Z"
+  },
+  {
+    "id": "7ae4ddb5-a4c4-4647-bece-355f5af033f9",
+    "todoId": "10e746b2-f4f4-4f27-a7ca-85c8f9ffd047",
+    "todoTitle": "dsa",
+    "action": "created",
+    "changes": null,
+    "timestamp": "2026-06-24T19:12:24.927Z"
+  },
+  {
     "id": "68c567ec-13b4-472a-a7b5-ed33ef5ab72e",
     "todoId": "seed-002",
     "todoTitle": "Set up local development environment",
