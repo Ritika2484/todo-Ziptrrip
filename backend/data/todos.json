@@ -1,0 +1,32 @@
+[
+  {
+    "id": "seed-003",
+    "title": "Complete the Todo app assignment",
+    "description": "Build the full-stack CRUD Todo application with SOLID architecture as described in the brief.",
+    "priority": "high",
+    "completed": false,
+    "dueDate": "2026-06-29T17:51:05.723Z",
+    "createdAt": "2026-06-24T17:51:05.723Z",
+    "updatedAt": "2026-06-24T17:51:05.723Z"
+  },
+  {
+    "id": "seed-004",
+    "title": "Write unit tests for the service layer",
+    "description": "Cover validation edge cases and ensure all business logic is tested.",
+    "priority": "medium",
+    "completed": false,
+    "dueDate": "2026-07-01T17:51:05.723Z",
+    "createdAt": "2026-06-24T17:51:05.723Z",
+    "updatedAt": "2026-06-24T17:51:05.723Z"
+  },
+  {
+    "id": "seed-005",
+    "title": "Schedule 1-on-1 with mentor",
+    "description": "Book a 30-minute slot with your assigned mentor to discuss goals for the internship.",
+    "priority": "low",
+    "completed": false,
+    "dueDate": null,
+    "createdAt": "2026-06-24T17:51:05.723Z",
+    "updatedAt": "2026-06-24T17:51:05.723Z"
+  }
+]
